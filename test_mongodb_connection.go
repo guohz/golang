@@ -4,16 +4,9 @@ import (
 	"context"
 	"fmt"
 	"log"
-
-	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
-
-type Student struct {
-	Name string
-	Age  int
-}
 
 var client *mongo.Client
 
@@ -30,25 +23,9 @@ func initDb() {
 	} else {
 		fmt.Println("连接成功！")
 	}
-	client = c
-}
-
-func del() {
-
-	initDb()
-	c := client.Database("go_db").Collection("Student")
-	ctx := context.TODO()
-
-	dr, err := c.DeleteMany(ctx, bson.D{{"Name", "big kite"}})
-
-	if err != nil {
-		log.Fatal(err)
-	}
-	fmt.Printf("ur.ModifiedCount: %v\n", dr.DeletedCount)
-
 }
 
 func main() {
-	del()
+	initDb()
 }
- */
+*/

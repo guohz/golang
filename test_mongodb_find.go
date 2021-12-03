@@ -10,11 +10,6 @@ import (
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
-type Student struct {
-	Name string
-	Age  int
-}
-
 var client *mongo.Client
 
 func initDb() {
@@ -33,22 +28,30 @@ func initDb() {
 	client = c
 }
 
-func del() {
-
-	initDb()
-	c := client.Database("go_db").Collection("Student")
+func find() {
 	ctx := context.TODO()
+	defer client.Disconnect(ctx)
+	c := client.Database("go_db").Collection("Student")
 
-	dr, err := c.DeleteMany(ctx, bson.D{{"Name", "big kite"}})
-
+	c2, err := c.Find(ctx, bson.D{{"name", "tom"}})
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Printf("ur.ModifiedCount: %v\n", dr.DeletedCount)
+	defer c2.Close(ctx)
+
+	for c2.Next(ctx) {
+		var result bson.D
+		c2.Decode(&result)
+
+		fmt.Printf("result: %v\n", result)
+		fmt.Printf("result: %v\n", result.Map())
+
+	}
 
 }
 
 func main() {
-	del()
+	initDb()
+	find()
 }
  */

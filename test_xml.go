@@ -1,4 +1,4 @@
-package main
+/* package main
 
 import (
 	"encoding/xml"
@@ -70,3 +70,4 @@ func write() {
 func main() {
 	write()
 }
+ */

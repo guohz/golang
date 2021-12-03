@@ -39,16 +39,14 @@ func del() {
 	c := client.Database("go_db").Collection("Student")
 	ctx := context.TODO()
 
-	dr, err := c.DeleteMany(ctx, bson.D{{"Name", "big kite"}})
-
+	dr, err := c.DeleteMany(ctx, bson.D{{"age", 20}})
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Printf("ur.ModifiedCount: %v\n", dr.DeletedCount)
-
+	fmt.Printf("dr.DeletedCount: %v\n", dr.DeletedCount)
 }
 
 func main() {
 	del()
 }
- */
+*/
