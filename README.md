@@ -2,7 +2,9 @@
 
 QQ学习交流群：**387278638**
 
-微信公众号：![微信公众号](https://github.com/guohz/golang/blob/master/qrcode_for_gh_943b07c58763_258.jpg)
+微信公众号：
+
+![微信公众号](https://github.com/guohz/golang/blob/master/qrcode_for_gh_943b07c58763_258.jpg)
 
 B站视频教程：https://www.bilibili.com/video/BV1zR4y1t7Wj?spm_id_from=333.999.0.0
 
